@@ -14,6 +14,7 @@
             <div class="navbar-collapse collapse">
               <ul class="navbar-nav">
                 <li class="nav-item"><router-link class="nav-link" to="/home">Home</router-link></li>
+                <li class="nav-item"><router-link class="nav-link" to="/Download">Download</router-link></li>
                 <li class="nav-item"><router-link class="nav-link" to="/blog">Blog</router-link></li>
                 <li class="nav-item"><a href="https://github.com/inexorgame/code/wiki" class="nav-link">Wiki</a></li> <!-- We need to change that to a way to get the wiki directly from the website-->
                 <li class="nav-item"><router-link class="nav-link" to="/people">People</router-link></li>

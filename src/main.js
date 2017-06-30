@@ -15,6 +15,13 @@ const Home = resolve => {
   })
 }
 
+// Download page
+const Download = resolve => {
+  require.ensure(['./Download.vue'], () => {
+    resolve(require('./Download.vue'))
+  })
+}
+
 // People page .. display persons from GitHub team
 const People = resolve => {
   require.ensure(['./People.vue'], () => {
@@ -43,6 +50,7 @@ function redirect_to_youtube() {
 
 const routes = [
   { path: '/home', component: Home , alias: '/' },
+  { path: '/download', component: Download },
   { path: '/people', component: People },
   { path: '/blog', component: Blog },
   { path: '/post/:year/:title', component: Post },
