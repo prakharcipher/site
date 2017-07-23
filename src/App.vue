@@ -99,6 +99,7 @@ body {
     background-position: center;
     top: 0;
     left: 0;
+    bottom: 0;
     z-index:-1;
 }
 
@@ -276,12 +277,21 @@ export default {
     }
   },
   created() {
+    window.addEventListener('scroll', function() {
+      if (window.scrollY < 50) {
+        $('nav').fadeIn();
+      }
+      else  {
+        $('nav').fadeOut();
+      }
+    });
+
     this.loopThroughBackgroundImages();
   },
   methods: {
      loopThroughBackgroundImages: function loopThroughBackgroundImages() {
        let vm = this;
-       vm.$set( ( vm.toggle_bg ? vm.bg_1: vm.bg_2 ), 'background-image', 'url(src/assets/background/' + vm.bg_images[vm.i] + ')' ) ;
+       vm.$set( ( vm.toggle_bg ? vm.bg_1: vm.bg_2 ), 'background-image', 'url(/src/assets/background/' + vm.bg_images[vm.i] + ')' ) ;
        vm.toggle_bg = !vm.toggle_bg;
 
       vm.i++;
@@ -298,17 +308,8 @@ export default {
         let t1 = performance.now()
         setTimeout(vm.loopThroughBackgroundImages, Math.max(0, 10000 - (t1 - t0)) );
       }
-    }
+    },
   }
 }
-
-window.addEventListener('scroll', function() {
-  if (window.scrollY < 50) {
-    $('nav').fadeIn();
-  }
-  else  {
-    $('nav').fadeOut();
-  }
-});
 
 </script>
